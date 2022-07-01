@@ -9,3 +9,8 @@ source ./env/bin/activate
 ```
 python3 manage.py runserver
 ```
+
+# Recolectar staticos
+```
+python manage.py collectstatic
+```
