@@ -2,12 +2,15 @@
 
 # Primeros pasos en Django
 ```
-$ python3 - venv env
+$ python3 -m venv env
+$ source ./env/bin/activate
 $ pip install django
-$ pip freeze
+$ pip freezels
 $ django-admin startproject marlonapps .
 $ python3 manage.py runserver
 $ pip freeze > requirements.txt
+$ mkdir apps
+$ python manage.py collectstatic
 ```
 
 # Activar el entorno
