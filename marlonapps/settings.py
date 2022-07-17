@@ -32,8 +32,6 @@ SECRET_KEY = 'django-insecure-%f!gjh2uiltm1(gjnn7v^%d)$4ft1uj-zue43^u-o52r@npiy=
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'www.marlonapps.com', 'marlonapps.com', 'test.marlonapps.com']
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      # Local Apps
+     'apps.category'
 ]
 
 MIDDLEWARE = [
