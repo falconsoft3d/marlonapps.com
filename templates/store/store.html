@@ -29,13 +29,9 @@
                 <div class="card-body">
                     
                     <ul class="list-menu">
-                    <li><a href="#">Accesorios  </a></li>
-                    <li><a href="#">Telefonos </a></li>
-                    <li><a href="#">Pantalones  </a></li>
-                    <li><a href="#">Computadoras </a></li>
-                    <li><a href="#">Camisetas </a></li>
-                    <li><a href="#">Adornos</a></li>
-                    <li><a href="#">Accesorios </a></li>
+                        {% for category in links %}
+                          <li><a href="{{ category.get_url }}">{{ category.category_name }} </a></li>
+                        {% endfor %}
                     </ul>
     
                 </div> <!-- card-body.// -->

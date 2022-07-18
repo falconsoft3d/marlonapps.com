@@ -9,12 +9,9 @@ def store(request, category_slug=None):
     products = None
     
     if category_slug != None:
-        print("Entro")
         categories = get_object_or_404(Category, slug=category_slug)
-        print(categories)
         products = Product.objects.filter(category=categories, state=True)
         product_count = products.count()
-        print(product_count)
     else:
         products = Product.objects.all().filter(state=True)
         product_count = products.count()
