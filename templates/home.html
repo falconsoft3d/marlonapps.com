@@ -18,7 +18,7 @@
 <div class="container">
 
 <header class="section-heading">
-	<a href="./store.html" class="btn btn-outline-primary float-right">Ver Todo</a>
+	<a href="{% url 'store' %}" class="btn btn-outline-primary float-right">Ver Todo</a>
 	<h3 class="section-title">Productos populares</h3>
 </header><!-- sect-heading -->
 
@@ -29,12 +29,12 @@
 		<div class="col-md-3">
 			<div class="card card-product-grid">
 				{% if product.images %}
-					<a href="./product-detail.html" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
+					<a href="{{ product.get_url }}" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
 				{% else %}
-					<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/no_imagen_product.png' %}"> </a>
+					<a href="{{ product.get_url }}" class="img-wrap"> <img src="{% static 'images/no_imagen_product.png' %}"> </a>
 				{% endif %}
 				<figcaption class="info-wrap">
-					<a href="./product-detail.html" class="title">{{product.product_name}}</a>
+					<a href="{{ product.get_url }}" class="title">{{product.product_name}}</a>
 					<div class="price mt-1">{{product.price}} €</div> <!-- price-wrap.// -->
 				</figcaption>
 			</div>

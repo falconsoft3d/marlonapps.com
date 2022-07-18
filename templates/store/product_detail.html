@@ -11,7 +11,13 @@
             <aside class="col-md-6">
     <article class="gallery-wrap"> 
         <div class="img-big-wrap">
-           <a href="#"><img src="{{ single_product.images.url }}"/></a>
+            
+            {% if single_product.images %}
+            <a href="{{ single_product.get_url }}" class="img-wrap"> <img src="{{ single_product.images.url }}"> </a>
+        {% else %}
+            <a href="{{ single_product.get_url }}" class="img-wrap"> <img src="{% static 'images/no_imagen_product.png' %}"> </a>
+        {% endif %}
+
         </div> <!-- img-big-wrap.// -->
         
     </article> <!-- gallery-wrap .end// -->

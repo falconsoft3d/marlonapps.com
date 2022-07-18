@@ -2,6 +2,7 @@ from django.db import models
 from base.models import BaseClass
 from category.models import Category
 from accounts.models import Account
+from django.urls import reverse
 
 # Create your models here.
 class Product(BaseClass):
@@ -18,4 +19,6 @@ class Product(BaseClass):
     def __str__(self):
         return self.product_name
     
-    
+    def get_url(self):
+        return reverse('product_detail', args=[self.category.slug, self.slug])
+
