@@ -24,78 +24,23 @@
 
 	
 <div class="row">
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/1006.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Macbook Pro</a>
-				<div class="price mt-1">$2400.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/1001.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Apple Watch</a>
-				<div class="price mt-1">$250.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/800.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Bose Headphones</a>
-				<div class="price mt-1">$299.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/700.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Airpods</a>
-				<div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/400.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Buffer Sounds</a>
-				<div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/500.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Logitech Mouse</a>
-				<div class="price mt-1">$560.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/1002.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">IPad Pro</a>
-				<div class="price mt-1">$456.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/1004.jpg' %}"> </a>
-			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">Gaming Chair</a>
-				<div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-			</figcaption>
-		</div>
-	</div> <!-- col.// -->
+
+	{%  for product in products %}
+		<div class="col-md-3">
+			<div class="card card-product-grid">
+				{% if product.images %}
+					<a href="./product-detail.html" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
+				{% else %}
+					<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/no_imagen_product.png' %}"> </a>
+				{% endif %}
+				<figcaption class="info-wrap">
+					<a href="./product-detail.html" class="title">{{product.product_name}}</a>
+					<div class="price mt-1">{{product.price}} €</div> <!-- price-wrap.// -->
+				</figcaption>
+			</div>
+		</div> <!-- col.// -->
+	{%  endfor %}
+
 </div> <!-- row.// -->
 
 </div><!-- container // -->

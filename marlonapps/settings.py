@@ -29,7 +29,7 @@ sys.path.append(os.path.join(BASE_DIR, "apps"))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = "ECRET_KEY=django-insecure-%f!gjh2uiltmasas1(gjnn7v^%d)$4ft1uj-zue43asas^u-o52r@npiy="
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,8 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      # Local Apps
+     'apps.base',
      'apps.category',
      'apps.accounts',
+     'apps.store',
+     # 3rs
 ]
 
 MIDDLEWARE = [
