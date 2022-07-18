@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
+{% load static %}
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
     <div class="container">
@@ -9,9 +8,9 @@
         
     </div> <!-- container //  -->
     </section>
-    <!-- ========================= SECTION INTRO END// ========================= -->
+<!-- ========================= SECTION INTRO END// ========================= -->
 
-    <!-- ========================= SECTION CONTENT ========================= -->
+<!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
     <div class="container">
     
@@ -123,31 +122,37 @@
     
     <header class="border-bottom mb-4 pb-3">
             <div class="form-inline">
-                <span class="mr-md-auto">32 Items Encontrados </span>
+                <span class="mr-md-auto"> <b>{{ product_count }}</b> Módulos Encontrados </span>
                 
             </div>
     </header><!-- sect-heading -->
     
     <div class="row">
+        {% for product in products %}
         <div class="col-md-4">
             <figure class="card card-product-grid">
                 <div class="img-wrap"> 
                     
-                    <img src="images/items/1.jpg">
+                        {% if product.images %}
+					        <a href="./product-detail.html" class="img-wrap"> <img src="{{ product.images.url }}"> </a>
+				        {% else %}
+					        <a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/no_imagen_product.png' %}"> </a>
+				        {% endif %}
                     
                 </div> <!-- img-wrap.// -->
                 <figcaption class="info-wrap">
                     <div class="fix-height">
-                        <a href="./product-detail.html" class="title">Great item name goes here</a>
+                        <a href="./product-detail.html" class="title">{{product.product_name}}</a>
                         <div class="price-wrap mt-2">
-                            <span class="price">$1280</span>
-                            <del class="price-old">$1980</del>
+                            <span class="price">{{product.price}} €</span>
+                            {% comment %} <del class="price-old">$1980</del> {% endcomment %}
                         </div> <!-- price-wrap.// -->
                     </div>
-                    <a href="#" class="btn btn-block btn-success">Added to cart </a>
+                    <a href="#" class="btn btn-block btn-success">Agregar Carrito </a>
                 </figcaption>
             </figure>
         </div> <!-- col.// -->
+        {% endfor %}
     
 
     </div> <!-- row end.// -->
