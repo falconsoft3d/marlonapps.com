@@ -11,10 +11,6 @@ class Category(BaseClass):
     def __str__(self):
         return '{}'.format(self.category_name)
     
-    def save(self):
-        self.category_name = self.category_name.upper()
-        super(Category, self).save()
-    
     class Meta:
         verbose_name = 'category'
         verbose_name_plural = 'categories'

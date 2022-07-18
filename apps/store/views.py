@@ -1,10 +1,23 @@
-from django.shortcuts import render
+from unicodedata import category
+from django.shortcuts import get_object_or_404, render
 from apps.store.models import Product
+from category.models import Category
 
 # Create your views here.
-def store(request):
-    products = Product.objects.all().filter(state=True)
-    product_count = products.count()
+def store(request, category_slug=None):
+    categories = None
+    products = None
+    
+    if category_slug != None:
+        print("Entro")
+        categories = get_object_or_404(Category, slug=category_slug)
+        print(categories)
+        products = Product.objects.filter(category=categories, state=True)
+        product_count = products.count()
+        print(product_count)
+    else:
+        products = Product.objects.all().filter(state=True)
+        product_count = products.count()
     
     context = {
         'products' : products,
