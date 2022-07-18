@@ -1,6 +1,8 @@
 # marlonapps
+Un sitio para vender aplicaciones de Odoo ERP, con Django y PostgreSQL.
 
-# Primeros pasos en Django
+
+# Comandos en Django
 ```
 $ python3 -m venv env
 $ source ./env/bin/activate
