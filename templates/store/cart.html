@@ -41,7 +41,7 @@
                      <div class="aside"><img src="{% static 'images/no_imagen_product.png' %}" class="img-sm"></div>
                 {% endif %}
                 <figcaption class="info">
-                    <a href="#" class="title text-dark">{{ cart_item.product.product_name }}</a>
+                    <a href="{{ cart_item.product.get_url }}" class="title text-dark">{{ cart_item.product.product_name }}</a>
                     <p class="text-muted small">Módulo para Odoo ERP<br>Versión: 10.0</p>
                 </figcaption>
             </figure>
@@ -100,7 +100,7 @@
                     <img src="{% static '/images/misc/payments.png' %}" height="26">
                 </p>
                 <a href="./place-order.html" class="btn btn-primary btn-block"> Pagar </a>
-                <a href="./store.html" class="btn btn-light btn-block">Continuar comprando</a>
+                <a href="{% url 'store' %}" class="btn btn-light btn-block">Continuar comprando</a>
             </div> <!-- card-body.// -->
             </div> <!-- card.// -->
     
