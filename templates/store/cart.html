@@ -8,8 +8,16 @@
     
     <!-- ============================ COMPONENT 1 ================================= -->
     
-    <div class="row">
-        <aside class="col-lg-9">
+   {% if not cart_items %}
+        <h2 class="text-center">El carrito de compra esta vacio</h2>
+        <br>
+        <div class="text-center">
+            <a href="{% url 'store' %}" class="btn btn-primary">Continua comprando</a>
+        <div>
+
+   {% else %}
+   <div class="row">
+    <aside class="col-lg-9">
     <div class="card">
     <table class="table table-borderless table-shopping-cart">
     <thead class="text-muted">
@@ -100,6 +108,11 @@
     
     
     </div> <!-- row.// -->
+        
+   {% endif %} 
+
+
+    
     <!-- ============================ COMPONENT 1 END .// ================================= -->
     
     </div> <!-- container .//  -->
